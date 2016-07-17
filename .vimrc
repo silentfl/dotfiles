@@ -63,6 +63,7 @@ Plugin 'ngmy/vim-rubocop'
 Plugin 'astashov/vim-ruby-debugger'
 Plugin 'danchoi/ri.vim'
 Plugin 'skwp/vim-rspec'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
