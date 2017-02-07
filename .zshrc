@@ -87,6 +87,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias gs="git status"
+alias gc="git checkout"
+alias cx="/home/silent/.cloud66/cx"
+
+# uniq projects
+#alias tele2="bundle exec ruby /home/silent/work/uniq/poc-tele2/fetcher.rb"
+#alias mts="bundle exec ruby /home/silent/work/uniq/poc-mts/fetcher.rb"
+#alias megafon="bundle exec ruby /home/silent/work/uniq/poc-megafon/fetcher.rb"
+#alias beeline="bundle exec ruby /home/silent/work/uniq/poc-beeline/fetcher.rb"
+alias beeline="docker run -e MAILBOY_BASE_URL='http://mailboy.lo' -it --rm beeline-fetcher"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Golang GVM
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
