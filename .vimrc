@@ -63,8 +63,10 @@ Plugin 'ngmy/vim-rubocop'
 Plugin 'astashov/vim-ruby-debugger'
 Plugin 'danchoi/ri.vim'
 Plugin 'skwp/vim-rspec'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'yalesov/vim-emblem'
+Plugin 'scrooloose/syntastic'
+Plugin 'Addisonbean/Vim-Xcode-Theme'
+Plugin 'stefanoverna/vim-i18n'
+Plugin 'silentfl/slim-lint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -108,8 +110,10 @@ set incsearch " поиск фрагмента по мере его набора
 
 set wildmenu
 set wildmode=full
+colorscheme torte
 "colorscheme solarized
-colorscheme wombat256mod
+"colorscheme wombat256mod
+
 " show a vertical line on a 80th character
 "set textwidth=80
 "set colorcolumn=+1
