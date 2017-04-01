@@ -91,6 +91,16 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias gs="git status"
 alias gc="git checkout"
 alias cx="/home/silent/.cloud66/cx"
+### plz: re-run the last command as root.
+alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
+### ports: lists all ports open and which programs are using them
+alias ports="netstat -tulpn"
+### used: recursively gets how much space is used in the current (or given) directory
+alias used="du -ch -d 1"
+### start a servre in the current directory for quick file sharing across a network
+### also display the ip address of the server
+### to access the server on another pc, go to ip:port (generally 8000)
+alias server="ifconfig | grep inet\ addr && python3 -m http.server"
 
 # uniq projects
 #alias tele2="bundle exec ruby /home/silent/work/uniq/poc-tele2/fetcher.rb"
