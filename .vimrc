@@ -117,6 +117,7 @@ set incsearch                          " поиск фрагмента по ме
 let g:airline_theme='molokai'
 let g:airline_section_b = "%{GitBranch()}"
 " let &colorcolumn=join(range(81,999),",")
+let g:NERDSpaceDelims=1               " Add spaces after comment delimiters
 
 " Open files by external tool
 "--------------------------------------------------------------------------------
