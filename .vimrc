@@ -54,7 +54,8 @@ Plugin 'Tagbar'
 Plugin 'rails.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'AndrewRadev/splitjoin.vim'     " ruby {} <-> do; end: gS, gJ
-" Plugin 'stefanoverna/vim-i18n'       " has conflict with folding by <leader>z
+Plugin 'stefanoverna/vim-i18n'         " has conflict with folding by <leader>z
+                                       " <leader>dt, <leader>m, <F10>
 
 " Golang
 "--------------------------------------------------------------------------------
@@ -72,6 +73,8 @@ filetype plugin indent on
 
 filetype on
 " filetype plugin on
+set nobackup
+set noswapfile
 set nowrap
 set t_Co=256
 set rnu	"relative number

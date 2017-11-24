@@ -1,16 +1,13 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/silent/.oh-my-zsh
+  export ZSH=/home/jonny/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="fishy"
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg_bold[red]%}+"
-
-#ZSH_THEME="sorin"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,14 +51,15 @@ ZSH_THEME_GIT_PROMPT_ADDED="%{$fg_bold[red]%}+"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git history bundler jsontools)
+
+source $ZSH/oh-my-zsh.sh
+
+[[ -s "/home/jonny/.gvm/scripts/gvm" ]] && source "/home/jonny/.gvm/scripts/gvm"
 
 # User configuration
 
-export PATH="/home/silent/.gvm/pkgsets/go1.5.2/global/bin:/home/silent/.gvm/gos/go1.5.2/bin:/home/silent/.gvm/pkgsets/go1.5.2/global/overlay/bin:/home/silent/.gvm/bin:/home/silent/.gvm/bin:/home/silent/.gvm/pkgsets/go1.5.2/global/bin:/home/silent/.gvm/gos/go1.5.2/bin:/home/silent/.gvm/pkgsets/go1.5.2/global/overlay/bin:/home/silent/.gvm/bin:/home/silent/.gvm/bin:/home/silent/.rvm/gems/ruby-2.2.3/bin:/home/silent/.rvm/gems/ruby-2.2.3@global/bin:/home/silent/.rvm/rubies/ruby-2.2.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/silent/.rvm/bin:/usr/local/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -77,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -85,32 +83,24 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias tele='/opt/telegram/Telegram'
+
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+alias ga.='ga .'
 alias gs="git status"
 alias gc="git checkout"
-alias cx="/home/silent/.cloud66/cx"
-### plz: re-run the last command as root.
-alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
-### ports: lists all ports open and which programs are using them
-alias ports="netstat -tulpn"
-### used: recursively gets how much space is used in the current (or given) directory
-alias used="du -ch -d 1"
-### start a servre in the current directory for quick file sharing across a network
-### also display the ip address of the server
-### to access the server on another pc, go to ip:port (generally 8000)
+alias gpr='git pull-request -m "$(git log -1 --pretty=%B)"'
+alias gprw='git pull-request -m "WIP: $(git log -1 --pretty=%B)"'
+
+alias be='bundle exec'
+alias brc='bundle exec rails c'
+alias brs='bundle exec rails s'
+alias test='bundle exec rspec'
+
 alias server="ifconfig | grep inet\ addr && python3 -m http.server"
 
-# uniq projects
-#alias tele2="bundle exec ruby /home/silent/work/uniq/poc-tele2/fetcher.rb"
-#alias mts="bundle exec ruby /home/silent/work/uniq/poc-mts/fetcher.rb"
-#alias megafon="bundle exec ruby /home/silent/work/uniq/poc-megafon/fetcher.rb"
-#alias beeline="bundle exec ruby /home/silent/work/uniq/poc-beeline/fetcher.rb"
-alias beeline="docker run -e MAILBOY_BASE_URL='http://mailboy.lo' -it --rm beeline-fetcher"
+alias tele='/opt/telegram/Telegram'
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# Golang GVM
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+alias :q='exit'
+alias :qa=:q
