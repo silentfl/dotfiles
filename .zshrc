@@ -55,6 +55,10 @@ plugins=(git history bundler jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
+# Search on history
+bindkey "^[[5~" history-beginning-search-backward # pg up
+bindkey "^[[6~" history-beginning-search-forward  # pg down
+
 [[ -s "/home/jonny/.gvm/scripts/gvm" ]] && source "/home/jonny/.gvm/scripts/gvm"
 
 # User configuration
@@ -77,6 +81,9 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# RBENV
+eval "$(rbenv init -)"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -98,9 +105,15 @@ alias brc='bundle exec rails c'
 alias brs='bundle exec rails s'
 alias test='bundle exec rspec'
 
-alias server="ifconfig | grep inet\ addr && python3 -m http.server"
+alias server='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
 
 alias tele='/opt/telegram/Telegram'
+alias tmux='TERM=xterm-256color tmux'
 
 alias :q='exit'
 alias :qa=:q
+
+alias hhpush='git push heroku master'
+
+alias share='qr-filetransfer'
+export PATH="$HOME/.rbenv/bin:$PATH"
