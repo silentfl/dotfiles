@@ -103,6 +103,7 @@ alias gprw='git pull-request -m "WIP: $(git log -1 --pretty=%B)"'
 alias be='bundle exec'
 alias brc='bundle exec rails c'
 alias brs='bundle exec rails s'
+alias brsr='bundle exec rackup'
 alias brsh='bundle exec racksh'
 alias test='bundle exec rspec'
 
