@@ -127,5 +127,12 @@ alias :qa=:q
 
 alias hhpush='git push heroku master'
 
+alias RED='RAILS_ENV=development RACK_ENV=development'
+alias REP='RAILS_ENV=production RACK_ENV=production'
+alias RET='RAILS_ENV=test RACK_ENV=test'
+
 alias share='qr-filetransfer'
+
+alias dep='be mina deploy t=staging b=$(git_current_branch)'
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:/home/jonny/Apps/flutter/bin"

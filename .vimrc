@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 filetype off                           " required
 
 "********************************************************************************
@@ -7,12 +8,12 @@ filetype off                           " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-
 " Filesystem
 "--------------------------------------------------------------------------------
 Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
 " Plugin 'fholgado/minibufexpl.vim'    " window with buffers list
+Plugin 'wincent/command-t'
 
 " Themes
 "--------------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'tpope/vim-markdown'
 Plugin 'scrooloose/syntastic'
+Plugin 'posva/vim-vue'
+Plugin 'elixir-editors/vim-elixir'
 
 " Git
 "--------------------------------------------------------------------------------
@@ -37,6 +40,7 @@ Plugin 'motemen/git-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vitapluvia/vim-gurl'
 
 " Tools
 "--------------------------------------------------------------------------------
@@ -87,10 +91,12 @@ set autoindent
 set smartindent
 syntax on
 set mouse=a
+set clipboard=unnamedplus
 
 " show a vertical line on a 80th character
-" set textwidth=80
-" set colorcolumn=+1
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=Gray
 " highlight ColorColumn ctermbg=LightYellow
 
 " debian bug with backspace key in insert mode
@@ -98,7 +104,13 @@ set backspace=indent,eol,start
 
 " colorscheme torte
 " colorscheme solarized
+" colorscheme peachpuff 
 colorscheme wombat256mod
+"
+" Переключение цвета не очень, airline периодически пропадает
+" autocmd BufEnter * colorscheme solarized
+" autocmd BufEnter *.ex colorscheme peachpuff
+" autocmd BufEnter *.exs colorscheme peachpuff
 
 " Completion
 "--------------------------------------------------------------------------------
@@ -120,8 +132,9 @@ set incsearch                          " поиск фрагмента по ме
 let g:airline_theme='molokai'
 let g:airline_section_b = "%{GitBranch()}"
 " let &colorcolumn=join(range(81,999),",")
-let g:NERDSpaceDelims=1               " Add spaces after comment delimiters
-
+let g:NERDSpaceDelims = 1
+let g:vimgurl_yank_register = '+' " :call Gurl() -> copy url to clipboard
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore=translations.js'
 " Open files by external tool
 "--------------------------------------------------------------------------------
 augroup nonvim
@@ -137,10 +150,12 @@ nmap gs <c-w><c-v><c-w>l:A<cr>         " open spec file
 nmap <F2> :RunSpec<cr>
 nmap <F8> :cn<cr>                      " next error
 nmap <C-k> :Ack "<cword>"<CR>          " search by current word
+noremap <leader>gr :call Gurl()<CR>
 
 " standart hotkey (<leader>z) conflict with folding
 vmap <Leader>m :call I18nTranslateString()<CR>
 vmap <F10> :call I18nTranslateString()<CR>
+nmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
 " Bindings by filetype
 "--------------------------------------------------------------------------------
